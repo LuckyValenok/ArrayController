@@ -5,20 +5,22 @@ import java.util.Arrays;
 public class Main {
     
     public static void main(String[] args) {
-        Object[] array1 = {new Object[]{new int[]{1, 2, 3}, new int[]{2, 3}, new int[]{3}}, new Object[]{new int[]{13}}, new Object[]{new int[]{9}}};
-        Object[] array2 = {new Object[]{new int[]{1, 2, 3}, new int[]{2, 3}, new int[]{3}}};
+        Object[] array1 = {new Object[]{new Object[]{1, 2, 3}, new Object[]{2, 3}, new Object[]{3}}, new Object[]{new Object[]{13}}, new Object[]{new Object[]{9}}};
+        Object[] array2 = {new Object[]{new Object[]{1, 2, 3}, new Object[]{2, 3}, new Object[]{3}}};
         System.out.println(checkArrays(array1, array2));
     }
     
     private static boolean checkArrays(Object[] oneArray, Object[] twoArray) {
         int count = 0;
-        for (Object o : oneArray) {
-            if (checkEquality(o, twoArray[count]))
+        for (Object obj : oneArray) {
+            if (checkEquality(obj, twoArray[count])) {
                 count++;
-            else
+            } else {
                 count = 0;
-            if (count == twoArray.length)
+            }
+            if (count == twoArray.length) {
                 return true;
+            }
         }
         return false;
     }
@@ -32,13 +34,15 @@ public class Main {
             Object[] oneArray = (Object[]) one;
             Object[] twoArray = (Object[]) two;
             int count = 0;
-            for (Object o : oneArray) {
-                if (!checkEquality(o, twoArray[count]))
+            for (Object obj : oneArray) {
+                if (!checkEquality(obj, twoArray[count])) {
                     return false;
-                else
+                } else {
                     count++;
-                if (count == twoArray.length)
+                }
+                if (count == twoArray.length) {
                     return true;
+                }
             }
             return true;
         } else {
